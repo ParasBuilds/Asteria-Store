@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galcy-Inspired Store</title>
+    <title>Asteria Store</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- MAIN CSS -->
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">  <!-- Added for Poppins font -->
-    <link rel="preload" href="Hero image.jpg" as="image">  <!-- Preload hero image for faster loading -->
+
+    <!-- Preload hero image (CORRECT PATH) -->
+    <link rel="preload" href="Hero image.jpg" as="image">
 </head>
+
 <body>
+    <!-- HEADER -->
     <header>
         <div class="logo">GALCY</div>
         <nav>
@@ -19,24 +27,25 @@
         </nav>
     </header>
 
+    <!-- HERO SECTION -->
     <section id="home" class="hero">
         <h1>Welcome to GALCY</h1>
         <p>Discover trendy fashion and accessories.</p>
         <button onclick="scrollToProducts()">Shop Now</button>
     </section>
 
+    <!-- PRODUCT SECTION -->
     <section id="products" class="products">
         <h2>Our Products</h2>
-        <div class="product-grid" id="product-grid">
-            <!-- Products will be loaded here via JS -->
-        </div>
+        <div class="product-grid" id="product-grid"></div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2023 GALCY. All rights reserved.</p>
+        <p>&copy; 2024 GALCY. All rights reserved.</p>
     </footer>
 
-    <script src="script.js" defer></script>  <!-- Added defer for faster initial load -->
+    <!-- JS (DEFER FIXES ALL ISSUES) -->
+    <script src="script.js" defer></script>
 </body>
 </html>
-
