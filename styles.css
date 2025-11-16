@@ -1,98 +1,72 @@
+/* Dark Background */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+    background: #111;
+    color: white;
+    font-family: Poppins, sans-serif;
 }
 
-header {
-    background-color: #fff;
-    padding: 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-.logo {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #333;
-}
-
-nav a {
-    margin: 0 1rem;
-    text-decoration: none;
-    color: #333;
-}
-
+/* HERO SECTION FIX */
 .hero {
-    background-image: url('https://via.placeholder.com/1920x600?text=Fashion+Hero+Image'); /* Replace with real image */
-    background-size: cover;
-    color: white;
+    background: url("Hero image.jpg") center/cover;
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 5rem 2rem;
 }
 
-.hero h1 {
-    font-size: 3rem;
-}
-
-.hero button {
-    background-color: #ff6b6b;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin-top: 1rem;
-}
-
+/* Product Section */
 .products {
-    padding: 2rem;
-    text-align: center;
+    padding: 40px 5%;
 }
 
+.products h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 30px;
+}
+
+/* Product Grid */
 .product-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    gap: 25px;
 }
 
+/* Product Card Style */
 .product-card {
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: #1b1b1b;
+    padding: 20px;
+    border-radius: 18px;
+    text-align: center;
+    transition: 0.3s ease;
+    box-shadow: 0px 5px 20px rgba(0,0,0,0.4);
 }
 
+.product-card:hover {
+    transform: scale(1.05);
+}
+
+/* Product Images */
 .product-card img {
     width: 100%;
-    height: 200px;
+    height: 330px;
     object-fit: cover;
+    border-radius: 15px;
 }
 
+/* Product Name */
 .product-card h3 {
-    margin: 1rem;
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 700;
 }
 
-.product-card p {
-    margin: 0 1rem 1rem;
-}
-
-.product-card button {
-    background-color: #333;
-    color: white;
-    border: none;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    width: 100%;
-}
-
-footer {
-    background-color: #333;
-    color: white;
-    text-align: center;
-    padding: 1rem;
+/* Price */
+.price {
+    margin-top: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ccc;
 }
