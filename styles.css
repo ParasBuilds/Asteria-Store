@@ -8,13 +8,13 @@
 body {
     background: #111;
     color: white;
-    font-family: 'Poppins', sans-serif;  /* Ensure Poppins is loaded via Google Fonts in HTML */
+    font-family: 'Poppins', sans-serif;
     line-height: 1.6;
 }
 
 /* Header Styles */
 header {
-    background-color: #1b1b1b;  /* Dark background to match theme */
+    background-color: #1b1b1b;
     padding: 1rem 5%;
     display: flex;
     justify-content: space-between;
@@ -45,7 +45,7 @@ nav a:hover {
 
 /* HERO SECTION */
 .hero {
-    background: url("images/Hero image.jpg") center/cover no-repeat;  /* Updated path; create 'images/' folder */
+    background: url("images/Hero image.jpg") center/cover no-repeat;
     height: 70vh;
     display: flex;
     flex-direction: column;
@@ -62,7 +62,7 @@ nav a:hover {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);  /* Overlay for better text readability */
+    background: rgba(0, 0, 0, 0.3);
     z-index: 1;
 }
 
@@ -82,7 +82,7 @@ nav a:hover {
 }
 
 .hero button {
-    background-color: #ff6b6b;  /* Accent color for button */
+    background-color: #ff6b6b;
     color: white;
     border: none;
     padding: 1rem 2rem;
@@ -131,12 +131,21 @@ nav a:hover {
     box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.6);
 }
 
-/* Product Images */
+/* Product Images (with Lazy Loading) */
 .product-card img {
     width: 100%;
     height: 330px;
     object-fit: cover;
     border-radius: 15px;
+}
+
+.lazy {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.lazy[src] {
+    opacity: 1;
 }
 
 /* Product Name */
@@ -154,7 +163,7 @@ nav a:hover {
     color: #ccc;
 }
 
-/* Add to Cart Button */
+/* Add to Cart Button (with Feedback and Spinner) */
 .product-card button {
     margin-top: 15px;
     background-color: #333;
@@ -171,6 +180,35 @@ nav a:hover {
 
 .product-card button:hover {
     background-color: #555;
+}
+
+.product-card button:active {
+    background-color: #777;
+    transform: scale(0.98);
+}
+
+.product-card button.loading {
+    background-color: #555;
+    color: #ccc;
+    cursor: not-allowed;
+    position: relative;
+}
+
+.product-card button.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    margin: auto;
+    border: 2px solid #ccc;
+    border-top: 2px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* Footer Styles */
