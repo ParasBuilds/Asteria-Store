@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galcy-Inspired Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">GALCY</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#cart">Cart (<span id="cart-count">0</span>)</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1>Welcome to GALCY</h1>
+        <p>Discover trendy fashion and accessories.</p>
+        <button onclick="scrollToProducts()">Shop Now</button>
+    </section>
+
+    <section id="products" class="products">
+        <h2>Our Products</h2>
+        <div class="product-grid" id="product-grid">
+            <!-- Products will be loaded here via JS -->
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 GALCY. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
