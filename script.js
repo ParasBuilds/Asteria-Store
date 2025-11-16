@@ -1,46 +1,64 @@
-// Dummy product data (replace with real API calls if adding backend)
+// REAL product data using your GitHub filenames
 const products = [
-    { id: 1, name: 'Stylish Dress', price: 50, image: 'https://via.placeholder.com/250x200?text=Dress' },
-    { id: 2, name: 'Casual Shirt', price: 30, image: 'https://via.placeholder.com/250x200?text=Shirt' },
-    { id: 3, name: 'Elegant Shoes', price: 80, image: 'https://via.placeholder.com/250x200?text=Shoes' },
-    { id: 4, name: 'Fashion Bag', price: 40, image: 'https://via.placeholder.com/250x200?text=Bag' },
-    // Add more as needed
+    {
+        id: 1,
+        name: "Arcane Threads Zip-Up",
+        price: 2199,
+        image: "Arcane Threads Zip-Up.jpg"
+    },
+    {
+        id: 2,
+        name: "Reaper Wing Hoodie",
+        price: 2199,
+        image: "Reaper Wing Hoodie.jpg"
+    },
+    {
+        id: 3,
+        name: "Rogue Shred Hoodie",
+        price: 2199,
+        image: "Rogue Shred Hoodie.jpg"
+    },
+    {
+        id: 4,
+        name: "Echo Recall Hoodie",
+        price: 2199,
+        image: "Echo Recall Hoodie.jpg"
+    }
 ];
 
-const productGrid = document.getElementById('product-grid');
-const cartCount = document.getElementById('cart-count');
+const productGrid = document.getElementById("product-grid");
+const cartCount = document.getElementById("cart-count");
 
-// Load products
+// Render Products in Grid
 products.forEach(product => {
-    const card = document.createElement('div');
-    card.className = 'product-card';
+    const card = document.createElement("div");
+    card.className = "product-card";
+
     card.innerHTML = `
         <img src="${product.image}" alt="${product.name}">
         <h3>${product.name}</h3>
-        <p>$${product.price}</p>
-        <button onclick="addToCart(${product.id})">Add to Cart</button>
+        <p class="price">Rs. ${product.price}.00</p>
     `;
+
     productGrid.appendChild(card);
 });
 
-// Add to cart (simple localStorage)
+// Cart System (optional)
 function addToCart(id) {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     const product = products.find(p => p.id === id);
     cart.push(product);
-    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
     updateCartCount();
 }
 
 function updateCartCount() {
-    const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+    const cart = JSON.parse(localStorage.getItem("cart") || "[]");
     cartCount.textContent = cart.length;
 }
 
-// Scroll to products
 function scrollToProducts() {
-    document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById("products").scrollIntoView({ behavior: "smooth" });
 }
 
-// Initialize cart count on load
 updateCartCount();
