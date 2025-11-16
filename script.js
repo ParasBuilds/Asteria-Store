@@ -1,28 +1,28 @@
-// REAL product data using your GitHub filenames
+// REAL product data using correct GitHub filenames (NO folders)
 const products = [
     {
         id: 1,
         name: "Arcane Threads Zip-Up",
         price: 2199,
-        image: "images/Arcane Threads Zip-Up.jpg"
+        image: "Arcane Threads Zip-Up.jpg"
     },
     {
         id: 2,
         name: "Reaper Wing Hoodie",
         price: 2199,
-        image: "images/Reaper Wing Hoodie.jpg"
+        image: "Reaper Wing Hoodie.jpg"
     },
     {
         id: 3,
         name: "Rogue Shred Hoodie",
         price: 2199,
-        image: "images/Rogue Shred Hoodie.jpg"
+        image: "Rogue Shred Hoodie.jpg"
     },
     {
         id: 4,
         name: "Echo Recall Hoodie",
         price: 2199,
-        image: "images/Echo Recall Hoodie.jpg"
+        image: "Echo Recall Hoodie.jpg"
     }
 ];
 
@@ -39,7 +39,9 @@ if (!productGrid) {
         card.className = "product-card";
 
         card.innerHTML = `
-            <img data-src="${product.image}" alt="${product.name}" class="lazy" onerror="this.src='https://via.placeholder.com/250x200?text=Image+Not+Found'">
+            <img data-src="${product.image}" alt="${product.name}" class="lazy" 
+            onerror="this.src='https://via.placeholder.com/250x200?text=Image+Not+Found'">
+
             <h3>${product.name}</h3>
             <p class="price">Rs. ${product.price}.00</p>
             <button onclick="addToCart(${product.id}, event)">Add to Cart</button>
@@ -60,10 +62,11 @@ if (!productGrid) {
             }
         });
     });
+
     images.forEach(img => imageObserver.observe(img));
 }
 
-// Cart System with Debounce and Loading Feedback
+// Cart System
 let debounceTimer;
 function addToCart(id, event) {
     clearTimeout(debounceTimer);
@@ -75,6 +78,7 @@ function addToCart(id, event) {
         setTimeout(() => {
             const cart = JSON.parse(localStorage.getItem("cart") || "[]");
             const product = products.find(p => p.id === id);
+
             if (product) {
                 cart.push(product);
                 localStorage.setItem("cart", JSON.stringify(cart));
@@ -82,8 +86,10 @@ function addToCart(id, event) {
             } else {
                 console.error("Product not found for ID:", id);
             }
+
             button.classList.remove('loading');
             button.disabled = false;
+
         }, 200);
     }, 300);
 }
@@ -102,5 +108,5 @@ function scrollToProducts() {
     }
 }
 
-// Initialize cart count on load
+// Initialize cart count
 updateCartCount();
